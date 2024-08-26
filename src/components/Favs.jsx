@@ -7,9 +7,9 @@ function Favs(props) {
 
   return (
     <div>
-      {favs.map((fav) => {
+      {favs.map((fav, index) => {
         return (
-          <div key={fav.id} className="car-card">
+          <div key={index} className="car-card">
             <span>{fav.car_name}</span>
             <button onClick={() => dispatch(cikar(fav.id))}>Sil</button>
           </div>
