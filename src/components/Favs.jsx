@@ -1,9 +1,9 @@
-/* eslint-disable react/prop-types */
+import { useDispatch, useSelector } from "react-redux";
+import { cikar } from "../store/actions/favActions";
 
-import { cikar } from "../store/action";
-
-function Favs(props) {
-  const { favs, dispatch } = props;
+function Favs() {
+  const favs = useSelector((store) => store.favStore.favs);
+  const dispatch = useDispatch();
 
   return (
     <div>

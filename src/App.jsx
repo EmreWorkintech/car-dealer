@@ -1,13 +1,11 @@
-import { useState, useReducer } from "react";
 import "./App.css";
-import { carData } from "./sahteVeri";
 import Car from "./components/Car.jsx";
-import { reducer } from "./store/reducer.js";
+
 import Favs from "./components/Favs.jsx";
+import { useSelector } from "react-redux";
 
 function App() {
-  const [cars] = useState(carData);
-  const [favs, dispatch] = useReducer(reducer, []);
+  const cars = useSelector((store) => store.carStore.cars);
 
   return (
     <>
@@ -16,12 +14,12 @@ function App() {
         <div>
           <h2>Car List</h2>
           {cars.map((car) => {
-            return <Car car={car} key={car.id} dispatch={dispatch} />;
+            return <Car car={car} key={car.id} />;
           })}
         </div>
         <div>
           <h2>My Favorites</h2>
-          <Favs favs={favs} dispatch={dispatch} />
+          <Favs />
         </div>
       </div>
     </>

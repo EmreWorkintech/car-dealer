@@ -1,11 +1,15 @@
 /* eslint-disable react/prop-types */
-import { ekle } from "../store/action";
+import { useDispatch } from "react-redux";
+import { ekle } from "../store/actions/favActions";
+import { carCikar } from "../store/actions/carActions";
 
 function Car(props) {
-  const { car, dispatch } = props;
+  const { car } = props;
+  const dispatch = useDispatch();
 
   function handleClick() {
     dispatch(ekle(car));
+    dispatch(carCikar(car.id));
   }
 
   return (
